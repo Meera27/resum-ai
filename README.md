@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ResumAI
+
+AI-powered resume analyzer that matches your resume against job descriptions and provides actionable feedback.
+
+## Features
+
+- **Resume Upload**: Upload PDF or DOCX resumes
+- **Job Description Analysis**: Paste any job description
+- **Match Scoring**: Get a detailed match score (0-100%)
+- **Skill Gap Analysis**: See matched and missing skills
+- **Resume Suggestions**: Get specific suggestions to improve your resume
+- **Cover Letter Generation**: Auto-generate cover letters for matches ≥60%
+- **Hiring Email Templates**: Get email drafts to send to hiring teams
+
+## Tech Stack
+
+- **Frontend**: Next.js 15, React, TypeScript, Tailwind CSS
+- **Backend**: Next.js API Routes
+- **Database**: PostgreSQL with Prisma ORM
+- **AI**: OpenAI GPT-4o-mini
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18+
+- PostgreSQL database
+- OpenAI API key
+
+### Installation
+
+1. Install dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Set up your environment variables in `.env`:
+```env
+DATABASE_URL="postgresql://meera@localhost:5432/resum_ai?schema=public"
+OPENAI_API_KEY="your-openai-api-key"
+NEXT_PUBLIC_APP_URL="http://localhost:3000"
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Generate Prisma client:
+```bash
+npx prisma generate
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Run database migrations:
+```bash
+npx prisma migrate dev
+```
 
-## Learn More
+5. Start the development server:
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+6. Open [http://localhost:3000](http://localhost:3000)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Note:** Make sure PostgreSQL is running. If you installed via Homebrew:
+```bash
+brew services start postgresql@15
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## How It Works
 
-## Deploy on Vercel
+1. **Upload Resume**: Parses PDF/DOCX and extracts structured data using AI
+2. **Paste Job Description**: AI extracts requirements, skills, and qualifications
+3. **Match Analysis**: Compares resume vs job across 4 dimensions:
+   - Skill match (40% weight)
+   - Experience match (30% weight)
+   - Education match (20% weight)
+   - Keyword match (10% weight)
+4. **Suggestions**: AI generates specific improvements
+5. **Cover Letter & Email**: Generated automatically if match ≥60%
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## API Endpoints
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### POST /api/resumes
+Upload a resume file (PDF/DOCX)
+
+### GET /api/resumes
+List all uploaded resumes
+
+### POST /api/analyses
+Analyze a resume against a job description
+
+### GET /api/analyses
+List all analyses
+
+## Project Structure
+
+```
+resum-ai/
+├── prisma/
+│   └── schema.prisma       # Database schema
+├── src/
+│   ├── app/
+│   │   ├── api/
+│   │   │   ├── resumes/    # Resume upload API
+│   │   │   └── analyses/   # Analysis API
+│   │   ├── page.tsx        # Main page
+│   │   └── layout.tsx      # Root layout
+│   ├── components/
+│   │   └── ui/             # UI components
+│   ├── lib/
+│   │   ├── prisma.ts       # Prisma client
+│   │   ├── openai.ts       # OpenAI client
+│   │   ├── parser.ts       # File parser
+│   │   └── ai.ts           # AI analysis functions
+│   └── types/
+│       └── index.ts        # TypeScript types
+└── .env                    # Environment variables
+```
+
+## Demo User
+
+For the MVP, all data is stored under a demo user ID (`demo-user`). Add authentication before production use.
