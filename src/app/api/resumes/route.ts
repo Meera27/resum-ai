@@ -18,9 +18,23 @@ export async function POST(request: NextRequest) {
 
     const parsedData = await parseResumeWithAI(rawText)
 
+    let user = await prisma.user.findUnique({
+      where: { email: 'demo@example.com' }
+    })
+
+    if (!user) {
+      user = await prisma.user.create({
+        data: {
+          id: 'demo-user',
+          email: 'demo@example.com',
+          name: 'Demo User'
+        }
+      })
+    }
+
     const resume = await prisma.resume.create({
       data: {
-        userId: 'demo-user',
+        userId: user.id,
         fileName: file.name,
         rawText,
         data: parsedData as any

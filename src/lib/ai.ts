@@ -3,7 +3,7 @@ import type { ResumeData, JobData, MatchAnalysis, Suggestions, AnalysisResult } 
 
 export async function parseResumeWithAI(resumeText: string): Promise<ResumeData> {
   const response = await openai.chat.completions.create({
-    model: 'qwen-plus',
+    model: 'qwen3.5-plus',
     messages: [
       { 
         role: 'user', 
@@ -135,7 +135,7 @@ export async function generateSuggestions(
   analysis: MatchAnalysis
 ): Promise<Suggestions> {
   const response = await openai.chat.completions.create({
-    model: 'qwen-plus',
+    model: 'qwen3.5-plus',
     messages: [
       {
         role: 'user',
