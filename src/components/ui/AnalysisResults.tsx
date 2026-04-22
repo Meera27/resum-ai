@@ -31,25 +31,25 @@ export default function AnalysisResults({
 
   return (
     <div className="w-full max-w-4xl">
-      <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-        <div className="border-b border-gray-200">
+      <div className="border-2 border-foreground rounded-lg overflow-hidden">
+        <div className="border-b-2 border-foreground">
           <nav className="flex">
             <button
               onClick={() => setActiveTab('analysis')}
-              className={`px-6 py-4 font-medium text-sm ${
+              className={`px-6 py-4 font-medium text-sm border-b-2 transition-colors ${
                 activeTab === 'analysis'
-                  ? 'text-blue-600 border-b-2 border-blue-600'
-                  : 'text-gray-500 hover:text-gray-700'
+                  ? 'border-foreground bg-foreground text-background'
+                  : 'border-transparent hover:bg-secondary'
               }`}
             >
               Analysis
             </button>
             <button
               onClick={() => setActiveTab('suggestions')}
-              className={`px-6 py-4 font-medium text-sm ${
+              className={`px-6 py-4 font-medium text-sm border-b-2 transition-colors ${
                 activeTab === 'suggestions'
-                  ? 'text-blue-600 border-b-2 border-blue-600'
-                  : 'text-gray-500 hover:text-gray-700'
+                  ? 'border-foreground bg-foreground text-background'
+                  : 'border-transparent hover:bg-secondary'
               }`}
             >
               Suggestions
@@ -57,10 +57,10 @@ export default function AnalysisResults({
             {showCoverLetterOptions && (
               <button
                 onClick={() => setActiveTab('coverletter')}
-                className={`px-6 py-4 font-medium text-sm ${
+                className={`px-6 py-4 font-medium text-sm border-b-2 transition-colors ${
                   activeTab === 'coverletter'
-                    ? 'text-blue-600 border-b-2 border-blue-600'
-                    : 'text-gray-500 hover:text-gray-700'
+                    ? 'border-foreground bg-foreground text-background'
+                    : 'border-transparent hover:bg-secondary'
                 }`}
               >
                 Cover Letter
@@ -69,10 +69,10 @@ export default function AnalysisResults({
             {showEmailOptions && (
               <button
                 onClick={() => setActiveTab('email')}
-                className={`px-6 py-4 font-medium text-sm ${
+                className={`px-6 py-4 font-medium text-sm border-b-2 transition-colors ${
                   activeTab === 'email'
-                    ? 'text-blue-600 border-b-2 border-blue-600'
-                    : 'text-gray-500 hover:text-gray-700'
+                    ? 'border-foreground bg-foreground text-background'
+                    : 'border-transparent hover:bg-secondary'
                 }`}
               >
                 Hiring Email
@@ -89,21 +89,21 @@ export default function AnalysisResults({
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-blue-50 rounded-lg p-4">
-                  <h4 className="font-medium text-blue-900 mb-2">Skill Match</h4>
-                  <p className="text-2xl font-bold text-blue-600">
+                <div className="border-2 border-foreground rounded-lg p-4">
+                  <h4 className="font-medium mb-2">Skill Match</h4>
+                  <p className="text-2xl font-bold">
                     {matchAnalysis.skillMatch.score}%
                   </p>
                 </div>
-                <div className="bg-green-50 rounded-lg p-4">
-                  <h4 className="font-medium text-green-900 mb-2">Experience Match</h4>
-                  <p className="text-2xl font-bold text-green-600">
+                <div className="border-2 border-foreground rounded-lg p-4">
+                  <h4 className="font-medium mb-2">Experience Match</h4>
+                  <p className="text-2xl font-bold">
                     {matchAnalysis.experienceMatch.score}%
                   </p>
                 </div>
-                <div className="bg-purple-50 rounded-lg p-4">
-                  <h4 className="font-medium text-purple-900 mb-2">Education Match</h4>
-                  <p className="text-2xl font-bold text-purple-600">
+                <div className="border-2 border-foreground rounded-lg p-4">
+                  <h4 className="font-medium mb-2">Education Match</h4>
+                  <p className="text-2xl font-bold">
                     {matchAnalysis.educationMatch.score}%
                   </p>
                 </div>
@@ -111,12 +111,12 @@ export default function AnalysisResults({
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-medium text-gray-900 mb-3">Matched Skills</h4>
+                  <h4 className="font-medium mb-3">Matched Skills</h4>
                   <div className="flex flex-wrap gap-2">
                     {matchAnalysis.skillMatch.matched.map((skill) => (
                       <span
                         key={skill}
-                        className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm"
+                        className="px-3 py-1 border-2 border-foreground rounded-full text-sm"
                       >
                         {skill}
                       </span>
@@ -124,12 +124,12 @@ export default function AnalysisResults({
                   </div>
                 </div>
                 <div>
-                  <h4 className="font-medium text-gray-900 mb-3">Missing Skills</h4>
+                  <h4 className="font-medium mb-3">Missing Skills</h4>
                   <div className="flex flex-wrap gap-2">
                     {matchAnalysis.skillMatch.missing.map((skill) => (
                       <span
                         key={skill}
-                        className="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm"
+                        className="px-3 py-1 border-2 border-red-500 text-red-500 rounded-full text-sm"
                       >
                         {skill}
                       </span>
@@ -139,28 +139,28 @@ export default function AnalysisResults({
               </div>
 
               <div>
-                <h4 className="font-medium text-gray-900 mb-3">Strengths</h4>
+                <h4 className="font-medium mb-3">Strengths</h4>
                 <ul className="space-y-2">
                   {matchAnalysis.strengths.map((strength, i) => (
                     <li key={i} className="flex items-start">
-                      <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-5 h-5 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                       </svg>
-                      <span className="text-gray-700">{strength}</span>
+                      <span>{strength}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
               <div>
-                <h4 className="font-medium text-gray-900 mb-3">Weaknesses</h4>
+                <h4 className="font-medium mb-3">Weaknesses</h4>
                 <ul className="space-y-2">
                   {matchAnalysis.weaknesses.map((weakness, i) => (
                     <li key={i} className="flex items-start">
-                      <svg className="w-5 h-5 text-red-500 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-5 h-5 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
                       </svg>
-                      <span className="text-gray-700">{weakness}</span>
+                      <span>{weakness}</span>
                     </li>
                   ))}
                 </ul>
@@ -172,14 +172,14 @@ export default function AnalysisResults({
             <div className="space-y-6">
               {suggestions.toAdd.length > 0 && (
                 <div>
-                  <h4 className="font-medium text-gray-900 mb-3">Add to Resume</h4>
+                  <h4 className="font-medium mb-3">Add to Resume</h4>
                   <ul className="space-y-2">
                     {suggestions.toAdd.map((item, i) => (
                       <li key={i} className="flex items-start">
-                        <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-5 h-5 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
                         </svg>
-                        <span className="text-gray-700">{item}</span>
+                        <span>{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -188,14 +188,14 @@ export default function AnalysisResults({
 
               {suggestions.toRemove.length > 0 && (
                 <div>
-                  <h4 className="font-medium text-gray-900 mb-3">Consider Removing</h4>
+                  <h4 className="font-medium mb-3">Consider Removing</h4>
                   <ul className="space-y-2">
                     {suggestions.toRemove.map((item, i) => (
                       <li key={i} className="flex items-start">
-                        <svg className="w-5 h-5 text-orange-500 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-5 h-5 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
                         </svg>
-                        <span className="text-gray-700">{item}</span>
+                        <span>{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -204,15 +204,15 @@ export default function AnalysisResults({
 
               {suggestions.toImprove.length > 0 && (
                 <div>
-                  <h4 className="font-medium text-gray-900 mb-3">Improve These Bullets</h4>
+                  <h4 className="font-medium mb-3">Improve These Bullets</h4>
                   <div className="space-y-4">
                     {suggestions.toImprove.map((item, i) => (
-                      <div key={i} className="bg-gray-50 rounded-lg p-4">
-                        <p className="text-sm text-gray-500 mb-2">Current:</p>
-                        <p className="text-gray-700 mb-3">{item.original}</p>
-                        <p className="text-sm text-blue-600 mb-2">Suggested:</p>
-                        <p className="text-gray-900 font-medium mb-2">{item.suggestion}</p>
-                        <p className="text-xs text-gray-500">Reason: {item.reason}</p>
+                      <div key={i} className="border-2 border-foreground rounded-lg p-4">
+                        <p className="text-xs text-muted mb-2">Current:</p>
+                        <p className="text-sm mb-3">{item.original}</p>
+                        <p className="text-xs text-muted mb-2">Suggested:</p>
+                        <p className="font-medium mb-2">{item.suggestion}</p>
+                        <p className="text-xs text-muted">Reason: {item.reason}</p>
                       </div>
                     ))}
                   </div>
@@ -221,12 +221,12 @@ export default function AnalysisResults({
 
               {suggestions.bulletPoints.length > 0 && (
                 <div>
-                  <h4 className="font-medium text-gray-900 mb-3">Suggested New Bullet Points</h4>
+                  <h4 className="font-medium mb-3">Suggested New Bullet Points</h4>
                   <ul className="space-y-2">
                     {suggestions.bulletPoints.map((bullet, i) => (
                       <li key={i} className="flex items-start">
-                        <span className="text-blue-500 mr-2">•</span>
-                        <span className="text-gray-700">{bullet}</span>
+                        <span className="mr-2">•</span>
+                        <span>{bullet}</span>
                       </li>
                     ))}
                   </ul>
@@ -238,18 +238,18 @@ export default function AnalysisResults({
           {activeTab === 'coverletter' && coverLetter && (
             <div>
               <div className="flex justify-between items-center mb-4">
-                <h4 className="font-medium text-gray-900">Cover Letter</h4>
+                <h4 className="font-medium">Cover Letter</h4>
                 <button
                   onClick={() => copyToClipboard(coverLetter, 'coverletter')}
-                  className="text-sm text-blue-600 hover:text-blue-700"
+                  className="text-sm font-medium border-2 border-foreground px-3 py-1 rounded hover:bg-foreground hover:text-background transition-colors"
                 >
                   {copied === 'coverletter' ? 'Copied!' : 'Copy'}
                 </button>
               </div>
-              <div className="bg-gray-50 rounded-lg p-6">
-                <p className="text-gray-800 whitespace-pre-line">{coverLetter}</p>
+              <div className="border-2 border-foreground rounded-lg p-6">
+                <p className="whitespace-pre-line">{coverLetter}</p>
               </div>
-              <p className="mt-3 text-sm text-green-600 font-medium">
+              <p className="mt-3 text-sm font-medium">
                 ✓ Match score above 60% - ready to use!
               </p>
             </div>
@@ -258,18 +258,18 @@ export default function AnalysisResults({
           {activeTab === 'email' && hiringEmail && (
             <div>
               <div className="flex justify-between items-center mb-4">
-                <h4 className="font-medium text-gray-900">Email to Hiring Team</h4>
+                <h4 className="font-medium">Email to Hiring Team</h4>
                 <button
                   onClick={() => copyToClipboard(hiringEmail, 'email')}
-                  className="text-sm text-blue-600 hover:text-blue-700"
+                  className="text-sm font-medium border-2 border-foreground px-3 py-1 rounded hover:bg-foreground hover:text-background transition-colors"
                 >
                   {copied === 'email' ? 'Copied!' : 'Copy'}
                 </button>
               </div>
-              <div className="bg-gray-50 rounded-lg p-6">
-                <p className="text-gray-800 whitespace-pre-line">{hiringEmail}</p>
+              <div className="border-2 border-foreground rounded-lg p-6">
+                <p className="whitespace-pre-line">{hiringEmail}</p>
               </div>
-              <p className="mt-3 text-sm text-green-600 font-medium">
+              <p className="mt-3 text-sm font-medium">
                 ✓ Match score above 60% - ready to send!
               </p>
             </div>

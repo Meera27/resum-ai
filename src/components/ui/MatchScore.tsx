@@ -3,12 +3,6 @@ interface MatchScoreProps {
 }
 
 export default function MatchScore({ score }: MatchScoreProps) {
-  const getColor = (score: number) => {
-    if (score >= 80) return 'text-green-600'
-    if (score >= 60) return 'text-yellow-600'
-    return 'text-red-600'
-  }
-
   const getLabel = (score: number) => {
     if (score >= 80) return 'Excellent Match'
     if (score >= 60) return 'Good Match'
@@ -30,7 +24,7 @@ export default function MatchScore({ score }: MatchScoreProps) {
             stroke="currentColor"
             strokeWidth="10"
             fill="none"
-            className="text-gray-200"
+            className="opacity-20"
           />
           <circle
             cx="64"
@@ -42,16 +36,16 @@ export default function MatchScore({ score }: MatchScoreProps) {
             strokeDasharray={circumference}
             strokeDashoffset={strokeDashoffset}
             strokeLinecap="round"
-            className={`${getColor(score)} transition-all duration-1000`}
+            className="transition-all duration-1000"
           />
         </svg>
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className={`text-3xl font-bold ${getColor(score)}`}>
+          <span className="text-3xl font-bold">
             {Math.round(score)}%
           </span>
         </div>
       </div>
-      <p className={`mt-2 font-medium ${getColor(score)}`}>
+      <p className="mt-2 font-medium">
         {getLabel(score)}
       </p>
     </div>

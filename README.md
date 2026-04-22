@@ -17,7 +17,7 @@ AI-powered resume analyzer that matches your resume against job descriptions and
 - **Frontend**: Next.js 15, React, TypeScript, Tailwind CSS
 - **Backend**: Next.js API Routes
 - **Database**: PostgreSQL with Prisma ORM
-- **AI**: OpenAI GPT-4o-mini
+- **AI**: qwen3.5-plus
 
 ## Getting Started
 
