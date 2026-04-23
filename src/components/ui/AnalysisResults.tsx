@@ -32,11 +32,11 @@ export default function AnalysisResults({
   return (
     <div className="w-full max-w-4xl">
       <div className="border-2 border-foreground rounded-lg overflow-hidden">
-        <div className="border-b-2 border-foreground">
-          <nav className="flex">
+        <div>
+          <nav className="flex w-full border-b border-foreground">
             <button
               onClick={() => setActiveTab('analysis')}
-              className={`px-6 py-4 font-medium text-sm border-b-2 transition-colors ${
+              className={`flex-1 px-6 py-4 font-medium text-sm text-center transition-colors ${
                 activeTab === 'analysis'
                   ? 'border-foreground bg-foreground text-background'
                   : 'border-transparent hover:bg-secondary'
@@ -46,7 +46,7 @@ export default function AnalysisResults({
             </button>
             <button
               onClick={() => setActiveTab('suggestions')}
-              className={`px-6 py-4 font-medium text-sm border-b-2 transition-colors ${
+              className={`flex-1 px-6 py-4 font-medium text-sm text-center transition-colors ${
                 activeTab === 'suggestions'
                   ? 'border-foreground bg-foreground text-background'
                   : 'border-transparent hover:bg-secondary'
@@ -57,7 +57,7 @@ export default function AnalysisResults({
             {showCoverLetterOptions && (
               <button
                 onClick={() => setActiveTab('coverletter')}
-                className={`px-6 py-4 font-medium text-sm border-b-2 transition-colors ${
+                className={`flex-1 px-6 py-4 font-medium text-sm text-center transition-colors ${
                   activeTab === 'coverletter'
                     ? 'border-foreground bg-foreground text-background'
                     : 'border-transparent hover:bg-secondary'
@@ -69,7 +69,7 @@ export default function AnalysisResults({
             {showEmailOptions && (
               <button
                 onClick={() => setActiveTab('email')}
-                className={`px-6 py-4 font-medium text-sm border-b-2 transition-colors ${
+                className={`flex-1 px-6 py-4 font-medium text-sm text-center transition-colors ${
                   activeTab === 'email'
                     ? 'border-foreground bg-foreground text-background'
                     : 'border-transparent hover:bg-secondary'

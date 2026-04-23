@@ -100,7 +100,7 @@ export default function Home() {
 
       <main className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
         {!resumeId ? (
-          <div className="max-w-xl mx-auto text-center space-y-8">
+          <div className="max-w-xl mx-auto text-center space-y-8 py-40">
             <div>
               <h2 className="text-2xl font-bold mb-2">
                 Upload Your Resume
@@ -123,7 +123,7 @@ export default function Home() {
                     <span className="font-medium">Resume uploaded: {resumeFileName}</span>
                   </div>
                   {resumeData && (
-                    <div className="mt-4 bg-secondary rounded-lg p-4">
+                    <div className="mt-4 border-2 border-foreground rounded-lg p-4">
                       <h3 className="font-medium mb-2">Extracted Information</h3>
                       <div className="grid grid-cols-2 gap-4 text-sm">
                         <div>
@@ -134,21 +134,18 @@ export default function Home() {
                           <span className="text-muted">Email:</span>
                           <span className="ml-2">{resumeData.email}</span>
                         </div>
-                        <div className="col-span-2">
-                          <span className="text-muted">Skills:</span>
-                          <div className="flex flex-wrap gap-2 mt-1">
-                            {resumeData.skills?.slice(0, 8).map((skill: string) => (
-                              <span
-                                key={skill}
-                                className="px-2 py-1 border border-foreground rounded text-xs"
-                              >
-                                {skill}
-                              </span>
-                            ))}
-                            {resumeData.skills?.length > 8 && (
-                              <span className="text-muted text-xs">+{resumeData.skills.length - 8} more</span>
-                            )}
-                          </div>
+                      </div>
+                      <div className="mt-4">
+                        <span className="text-muted">Skills:</span>
+                        <div className="flex flex-wrap gap-2 mt-2">
+                          {resumeData.skills?.map((skill: string) => (
+                            <span
+                              key={skill}
+                              className="px-2 py-1 border border-foreground rounded text-xs"
+                            >
+                              {skill}
+                            </span>
+                          ))}
                         </div>
                       </div>
                     </div>
@@ -156,18 +153,20 @@ export default function Home() {
                 </div>
 
                 <div className="border-2 border-foreground rounded-lg p-6">
-                  <h2 className="text-xl font-bold mb-4">
+                  <h2 className="text-xl font-bold mb-4 text-center">
                     Paste Job Description
                   </h2>
-                  <JobDescriptionInput
-                    onSubmit={handleAnalyze}
-                    disabled={isAnalyzing}
-                  />
+                  <div className="flex justify-center">
+                    <JobDescriptionInput
+                      onSubmit={handleAnalyze}
+                      disabled={isAnalyzing}
+                    />
+                  </div>
                 </div>
               </>
             ) : (
-              <div className="space-y-6">
-                <div className="border-2 border-foreground rounded-lg p-4 flex items-center">
+              <div className="space-y-6 flex flex-col items-center">
+                <div className="border-2 border-foreground rounded-lg p-4 flex items-center max-w-4xl w-full">
                   <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>

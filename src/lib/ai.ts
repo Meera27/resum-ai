@@ -209,10 +209,12 @@ ${strengths.join('\n')}
 
 Write a professional cover letter that:
 1. Opens with enthusiasm for the role and company
-2. Highlights 2-3 most relevant experiences/skills
+2. Highlights 2-3 most relevant experiences/skills using bullet points for readability
 3. Shows understanding of the role requirements
 4. Demonstrates value the candidate brings
 5. Ends with a call to action
+
+Format the second paragraph with bullet points (using - or •) to list key skills and qualifications for easy reading.
 
 Keep it concise (250-350 words), professional, and tailored to the specific job.`
       }
@@ -246,9 +248,11 @@ Match Score: ${score}%
 Write a brief, professional email that:
 1. Has a clear subject line
 2. Introduces the candidate briefly
-3. Mentions 1-2 key qualifications
+3. Mentions 1-2 key qualifications using bullet points for readability
 4. Expresses interest in the role
 5. Includes a call to action
+
+Format the qualifications section with bullet points (using - or •) for easy reading.
 
 Keep it under 150 words, professional, and easy to read.`
       }

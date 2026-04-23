@@ -10,7 +10,7 @@ const azeretMono = Azeret_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ResumAI",
+  title: "ResumAi",
   description: "AI-powered resume analysis tool",
 };
 

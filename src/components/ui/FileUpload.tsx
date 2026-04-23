@@ -52,7 +52,7 @@ export default function FileUpload({ onFileUploaded }: FileUploadProps) {
   return (
     <div className="w-full max-w-xl">
       <div
-        className="border-2 border-foreground rounded-lg p-8 text-center hover:bg-foreground hover:text-background transition-colors cursor-pointer"
+        className="border-2 border-foreground rounded-lg p-8 text-center cursor-pointer"
         onClick={() => fileInputRef.current?.click()}
       >
         <input

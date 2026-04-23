@@ -19,7 +19,7 @@ export default function JobDescriptionInput({ onSubmit, disabled }: JobDescripti
   }
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-2xl space-y-4">
+    <form onSubmit={handleSubmit} className="w-full max-w-5xl space-y-4">
       <div className="grid grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium mb-1">
@@ -29,7 +29,7 @@ export default function JobDescriptionInput({ onSubmit, disabled }: JobDescripti
             type="text"
             value={jobTitle}
             onChange={(e) => setJobTitle(e.target.value)}
-            className="w-full px-3 py-2 border-2 border-foreground bg-transparent rounded focus:outline-none focus:bg-foreground focus:text-background transition-colors"
+            className="w-full px-3 py-2 border-2 border-foreground bg-transparent rounded focus:outline-none"
             placeholder="e.g., Senior Software Engineer"
             disabled={disabled}
           />
@@ -42,7 +42,7 @@ export default function JobDescriptionInput({ onSubmit, disabled }: JobDescripti
             type="text"
             value={companyName}
             onChange={(e) => setCompanyName(e.target.value)}
-            className="w-full px-3 py-2 border-2 border-foreground bg-transparent rounded focus:outline-none focus:bg-foreground focus:text-background transition-colors"
+            className="w-full px-3 py-2 border-2 border-foreground bg-transparent rounded focus:outline-none"
             placeholder="e.g., Acme Inc."
             disabled={disabled}
           />
@@ -56,8 +56,8 @@ export default function JobDescriptionInput({ onSubmit, disabled }: JobDescripti
         <textarea
           value={jobDescription}
           onChange={(e) => setJobDescription(e.target.value)}
-          rows={12}
-          className="w-full px-3 py-2 border-2 border-foreground bg-transparent rounded focus:outline-none focus:bg-foreground focus:text-background transition-colors"
+          rows={16}
+          className="w-full px-3 py-2 border-2 border-foreground bg-transparent rounded focus:outline-none"
           placeholder="Paste the full job description here..."
           disabled={disabled}
           required
