@@ -77,7 +77,8 @@ brew services start postgresql@15
 4. **Suggestions**: AI generates specific improvements
 5. **Cover Letter & Email**: Generated automatically if match ≥60%
 
-<img width="1419" height="693" alt="Screenshot 2026-04-22 at 9 37 45 PM" src="https://github.com/user-attachments/assets/13925dda-4af5-46de-bb81-ab27fad28eb5" />
+<img width="1414" height="748" alt="Screenshot 2026-04-22 at 9 50 56 PM" src="https://github.com/user-attachments/assets/e0804f42-b800-4da8-93d4-77864206c53c" />
+
 
 ## API Endpoints
 
