@@ -1,6 +1,8 @@
 # ResumAI
 
 AI-powered resume analyzer that matches your resume against job descriptions and provides actionable feedback.
+<img width="1419" height="693" alt="Screenshot 2026-04-22 at 9 37 45 PM" src="https://github.com/user-attachments/assets/7f5d8722-7002-4e01-8380-292b71a53b3d" />
+
 
 ## Features
 
@@ -74,6 +76,8 @@ brew services start postgresql@15
    - Keyword match (10% weight)
 4. **Suggestions**: AI generates specific improvements
 5. **Cover Letter & Email**: Generated automatically if match ≥60%
+
+<img width="1419" height="693" alt="Screenshot 2026-04-22 at 9 37 45 PM" src="https://github.com/user-attachments/assets/13925dda-4af5-46de-bb81-ab27fad28eb5" />
 
 ## API Endpoints
 
